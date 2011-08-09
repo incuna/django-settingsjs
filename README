@@ -1,0 +1,50 @@
+Configurable JavaScript settings in Django
+==========================================
+
+
+INSTALATION
+===========
+
+Add 'settingsjs' to your INSTALLED_APPS (for the templates)
+Include 'settingsjs.urls' in your urls.
+Add a script tag with src="{% url settings_js %}" 
+    e.g.
+        <script type="text/javascript" src="{% url settings_js %}"></script>
+
+
+Access the settings in JavaScript using Setting.get and Setting.get:
+
+<script type="text/javascript">
+    var myapp_settings = Setting.get('myapp-settings');
+
+    Setting.set('some_key', 'some value');
+</script>
+
+
+
+Setting JavaScript settings
+===========================
+
+Use the SETTINGS_JS setting to specify settings:
+
+    e.g.
+        SETTINGS_JS = {
+            'myapp-settings': {
+                "fu": "bar", 
+            }
+        }
+
+Use settingsjs.signals.collect_settings:
+
+    e.g. In a file that will always be loaded (such as a models or urls file).
+
+        from settingsjs.signals import collect_settings
+        from django.dispatch import receiver
+
+        @receiver(collect_settings)
+        def videos_settingsjs(sender, jssettings=None, **kwargs):
+            if jssettings is not None:
+                jssettings['myapp-settings'] = {
+                    "fu": "bar", 
+                }
+
