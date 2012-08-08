@@ -4,7 +4,8 @@ from django.shortcuts import render_to_response
 
 from . import signals
 
-def settings_js(request, extra_context = None):
+
+def settings_js(request, extra_context=None):
     mimetype = 'text/javascript'
 
     context = RequestContext(request)
@@ -19,4 +20,3 @@ def settings_js(request, extra_context = None):
                             jssettings=context['settings'], request=request)
 
     return render_to_response('settingsjs/settings.js', context, mimetype=mimetype)
-
