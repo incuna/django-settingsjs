@@ -1,5 +1,8 @@
 # django-settingsjs changelog.
 
+## v0.1.4
+
+Use `escapejs` to escape JSON rather than assuming it is `safe`. 
 
 ## v0.1.3
 
