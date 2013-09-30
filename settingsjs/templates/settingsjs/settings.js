@@ -1,5 +1,5 @@
 (function (window) {
-    var settings = {{ settings|json }}; 
+    var settings = {{ jssettings|safe }}; 
     S = function () { }
     S.get = function (key) { return settings[key]; }
     S.set = function (key, val) { return settings[key] = val; }
