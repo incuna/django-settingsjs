@@ -1,5 +1,9 @@
 # django-settingsjs changelog.
 
+## v0.1.5
+
+Fix deprecated `django.conf.urls.defaults` import.
+
 ## v0.1.4
 
 Use `escapejs` to escape JSON rather than assuming it is `safe`. 
