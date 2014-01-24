@@ -9,7 +9,7 @@ Add 'settingsjs' to your INSTALLED_APPS (for the templates)
 Include 'settingsjs.urls' in your urls.
 Add a script tag with src="{% url settings_js %}" 
     e.g.
-        <script type="text/javascript" src="{% url settings_js %}"></script>
+        <script type="text/javascript" src="{% url 'settings_js' %}"></script>
 
 
 Access the settings in JavaScript using Setting.get and Setting.get:
